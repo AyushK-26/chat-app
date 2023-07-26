@@ -26,8 +26,6 @@ export default function Chats() {
     dispatch({ type: "CHANGE_USER", payload: user });
   };
 
-  // console.log(Object.entries(chats));
-
   return (
     <div className="chats">
       {Object.entries(chats)
@@ -42,7 +40,11 @@ export default function Chats() {
               <img src={chat[1].userInfo.photoURL} alt="" />
               <div className="userChatInfo">
                 <span>{chat[1].userInfo.displayName}</span>
-                <p>{chat[1].lastMessage?.text}</p>
+                <p>
+                  {chat[1].lastMessage?.text.length < 45
+                    ? chat[1].lastMessage?.text
+                    : `${chat[1].lastMessage?.text.slice(0, 45)}...`}
+                </p>
               </div>
             </div>
           );

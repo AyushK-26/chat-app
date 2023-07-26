@@ -31,7 +31,6 @@ export default function Register() {
         },
         (error) => {
           setErr(true);
-          console.log(error);
         },
         async () => {
           // UPDATING USER OBJECT WITH DISPLAY NAME AND AVATAR URL
@@ -54,7 +53,6 @@ export default function Register() {
         }
       );
     } catch (err) {
-      console.log(err);
       setErr(true);
     }
   };
